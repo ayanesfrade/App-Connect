@@ -1,0 +1,147 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "AppConnectCustomer",
+    "version" : "v1"
+  },
+  "host" : "sobeysqa.azure-api.net",
+  "basePath" : "/contact/v1",
+  "schemes" : [ "https" ],
+  "securityDefinitions" : {
+    "apiKeyHeader" : {
+      "type" : "apiKey",
+      "name" : "Ocp-Apim-Subscription-Key",
+      "in" : "header"
+    },
+    "apiKeyQuery" : {
+      "type" : "apiKey",
+      "name" : "subscription-key",
+      "in" : "query"
+    }
+  },
+  "security" : [ {
+    "apiKeyHeader" : [ ]
+  }, {
+    "apiKeyQuery" : [ ]
+  } ],
+  "paths" : {
+    "/Customer" : {
+      "post" : {
+        "description" : "Create a new instance of the model and persist it into the data source.",
+        "operationId" : "Customer-create",
+        "summary" : "Create a new instance of the model and persist it into the data source.",
+        "tags" : [ "Customer" ],
+        "parameters" : [ {
+          "name" : "customer",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/Customer"
+          },
+          "description" : "Model instance data"
+        } ],
+        "consumes" : [ "application/json", "application/x-www-form-urlencoded", "application/xml", "text/xml" ],
+        "responses" : {
+          "201" : {
+            "description" : "Request was successful",
+            "schema" : {
+              "$ref" : "#/definitions/Customer"
+            }
+          }
+        },
+        "produces" : [ "application/json", "application/xml", "text/xml", "application/javascript", "text/javascript" ]
+      }
+    },
+    "/Customer/{id}" : {
+      "get" : {
+        "description" : "Find a model instance by {{id}} from the data source.",
+        "operationId" : "Customer-findById",
+        "summary" : "Find a model instance by {{id}} from the data source.",
+        "tags" : [ "Customer" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Format - JSON. Model id",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "body",
+          "in" : "body",
+          "schema" : { }
+        } ],
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "responses" : {
+          "200" : {
+            "description" : "Request was successful",
+            "schema" : {
+              "$ref" : "#/definitions/Customer"
+            }
+          }
+        },
+        "produces" : [ "application/json", "application/xml", "text/xml", "application/javascript", "text/javascript" ]
+      },
+      "put" : {
+        "description" : "Replace an existing model instance or insert a new one",
+        "operationId" : "Customer-prototype-updateAttributes",
+        "summary" : "Replace an existing model instance or insert a new one",
+        "tags" : [ "Customer" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Format - JSON. Customer id",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "customer",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/Customer"
+          },
+          "description" : "An object of model property name/value pairs"
+        } ],
+        "consumes" : [ "application/json", "application/x-www-form-urlencoded", "application/xml", "text/xml" ],
+        "responses" : {
+          "200" : {
+            "description" : "Request was successful",
+            "schema" : {
+              "$ref" : "#/definitions/Customer"
+            }
+          },
+          "201" : {
+            "description" : "Request was successful",
+            "schema" : {
+              "$ref" : "#/definitions/Customer"
+            }
+          }
+        },
+        "produces" : [ "application/json", "application/xml", "text/xml", "application/javascript", "text/javascript" ]
+      }
+    }
+  },
+  "definitions" : {
+    "Customer" : {
+      "properties" : {
+        "CustomerID" : {
+          "type" : "string"
+        },
+        "FirstName" : {
+          "type" : "string"
+        },
+        "LastName" : {
+          "type" : "string"
+        },
+        "Email" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "CustomerID" ],
+      "additionalProperties" : false
+    },
+    "x-any" : {
+      "properties" : { }
+    }
+  },
+  "tags" : [ {
+    "name" : "Customer",
+    "description" : null
+  } ]
+}
